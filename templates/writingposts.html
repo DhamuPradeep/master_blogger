@@ -1,0 +1,74 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Master Blogger</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'fire.png' %}" />
+    <!-- Icons font CSS-
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">-->
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">-->
+
+    <!-- Main CSS-->
+
+<style>
+
+
+.title{
+  margin: 0px;
+  text-align: center;
+  background: lightblue;
+}
+.font{
+    font-size:30px;
+}
+.wfont{
+    font-size:18px
+}
+a:link, a:visited {
+  background-color: blue;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover, a:active {
+  background-color: red;
+}
+
+.sum{
+  background-color: blue;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  display: inline-block;
+}
+
+</style>
+</head>
+<body>
+    <div class="form-group">
+        <form action="writingposts" method="POST" enctype="multipart/form-data" class="title">
+            {%csrf_token%}
+            <h1>Title</h1>
+            {{form.title}}<br>
+            <h1>Content</h1>
+            {{form.body}}
+            <br>
+            <h1>Posted By</h1>
+            {{form.user}}
+            <br><br>
+            <h1>Image</h1>
+            <input type="file" name="image" class="wfont" ><br><br>
+            <input type="submit" class="sum">
+        </form>
+    </div>
+</body>
+</html>
